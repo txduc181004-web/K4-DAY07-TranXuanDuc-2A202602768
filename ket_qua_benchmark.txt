@@ -1,0 +1,66 @@
+strategy=RecursiveChunker chunk_size=500 embedder=mock chunks=95
+
+Q1: Sau khi Shopee chấp nhận yêu cầu Trả hàng & Hoàn tiền, người mua phải gửi trả sản phẩm trong bao lâu?
+filter=None
+  1. score=0.3216 id=shopee-return-policy-buyer#8 doc_id=shopee-return-policy-buyer
+     Trong một số trường hợp, nếu Người Mua không có lịch sử vi phạm chính sách hoặc tiêu chuẩn cộng đồng, Shopee có thể quyết định hoàn tiền ngay mà không cần chờ trả sản phẩm. Shopee 
+  2. score=0.2638 id=shopee-return-process#19 doc_id=shopee-return-process
+     Khi nhận lại đơn hàng hoàn hàng, bạn vui lòng kiểm tra kỹ ngoại quan của kiện hàng và tiến hành quay video toàn bộ quá trình mở hàng để làm bằng chứng khiếu nại trong trường hợp sả
+  3. score=0.2262 id=shopee-return-shipping#4 doc_id=shopee-return-shipping
+     Liên hệ đơn vị vận chuyển hỗ trợ nhận đơn hàng hoàn trả của bạn để được hỗ trợ.  Hoặc bạn cũng có thể chủ động mang hàng ra bưu cục SPX/bưu cục Giao Hàng Nhanh (không cần thay đổi 
+  scoring: gold_doc=shopee-return-process gold_rank=2 marker_found=False naive=1/2 honest=0/2
+  agent.answer(top_k=3) (top-3 co filter, demo_llm khong phai LLM that):
+     [DEMO LLM - khong phai cau tra loi that] Answer the question using only the context below. Cite the bracketed source number(s), e.g. [1], for every claim in your answer, so the answer can be traced back to the exact chunk and source it came from. If the context does not contain the answer, say plainly that it is not available in the provided sources — do not invent or assume information that isn't there.  Context: [1] (source: shopee-ret...
+
+Q2: Với đơn hàng thanh toán bằng thẻ tín dụng/ghi nợ, người mua nhận tiền hoàn trong bao lâu?
+filter=None
+  1. score=0.2781 id=shopee-return-policy-seller#2 doc_id=shopee-return-policy-seller
+     ## Chi phí vận chuyển hoàn trả người bán phải chịu  Người Bán chịu chi phí vận chuyển chiều hoàn trả đối với:  - Yêu cầu trả hàng hoặc hoàn tiền được Shopee chấp thuận mà nguyên nh
+  2. score=0.2386 id=shopee-return-policy-seller#3 doc_id=shopee-return-policy-seller
+     - Yêu cầu trả hàng hoặc hoàn tiền một phần, hoặc yêu cầu với lý do chưa nhận được hàng. - Yêu cầu được chấp thuận hoặc đơn giao không thành công do lỗi của đơn vị vận chuyển. - Yêu
+  3. score=0.1926 id=shopee-return-shipping#9 doc_id=shopee-return-shipping
+     Nếu bạn trả hàng qua hình thức Tự sắp xếp, bạn cần thanh toán trước phí trả hàng. Shopee sẽ hỗ trợ bạn phí trả hàng trong vòng 3 - 5 ngày làm việc (không kể Thứ 7, Chủ nhật, Ngày l
+  scoring: gold_doc=shopee-refund-timeline gold_rank=None marker_found=False naive=0/2 honest=0/2
+  agent.answer(top_k=3) (top-3 co filter, demo_llm khong phai LLM that):
+     [DEMO LLM - khong phai cau tra loi that] Answer the question using only the context below. Cite the bracketed source number(s), e.g. [1], for every claim in your answer, so the answer can be traced back to the exact chunk and source it came from. If the context does not contain the answer, say plainly that it is not available in the provided sources — do not invent or assume information that isn't there.  Context: [1] (source: shopee-ret...
+
+Q3: Khi tải bằng chứng cho yêu cầu Trả hàng/Hoàn tiền, dung lượng video tối đa được Shopee quy định là bao nhiêu?
+filter=None
+  1. score=0.2728 id=shopee-return-evidence#3 doc_id=shopee-return-evidence
+     ⚠️ Lưu ý: Khi bạn cần gửi trả sản phẩm, Shopee khuyến khích bạn quay lại video đóng kiện hàng hoàn trả. Video này cũng cần đáp ứng các tiêu chí tương tự video mở hàng (quay xuyên s
+  2. score=0.2049 id=shopee-return-process#8 doc_id=shopee-return-process
+     Hàng lỗi, không hoạt động  -  -  ✔  ✔  ✔  -    Khác với mô tả  ✔  -  ✔  ✔  ✔  ✔    Hàng giả, nhái  -  -  ✔  ✔  ✔  -    Hàng đã qua sử dụng  -  -  ✔  ✔  ✔  -    Hàng nguyên vẹn nhưn
+  3. score=0.1926 id=shopee-return-request#0 doc_id=shopee-return-request
+     # Hướng dẫn gửi yêu cầu trả hàng  [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàng/ Hoàn tiền | Shopee Trung tâm trợ giúp  [Trả hàng/ Hoàn tiền] Hướng dẫn gửi yêu cầu Trả hàn
+  scoring: gold_doc=shopee-return-evidence gold_rank=1 marker_found=False naive=2/2 honest=0/2
+  agent.answer(top_k=3) (top-3 co filter, demo_llm khong phai LLM that):
+     [DEMO LLM - khong phai cau tra loi that] Answer the question using only the context below. Cite the bracketed source number(s), e.g. [1], for every claim in your answer, so the answer can be traced back to the exact chunk and source it came from. If the context does not contain the answer, say plainly that it is not available in the provided sources — do not invent or assume information that isn't there.  Context: [1] (source: shopee-ret...
+
+Q4: Những nhóm sản phẩm nào không áp dụng lý do trả hàng Đổi ý?
+filter=None
+  1. score=0.2598 id=shopee-return-policy-seller#5 doc_id=shopee-return-policy-seller
+     ## Liên lạc và tranh chấp  Người Bán và Người Mua được khuyến khích thương lượng qua kênh liên lạc trên hệ thống Shopee. Nếu hai bên không đồng thuận, họ có thể khiếu nại tới cơ qu
+  2. score=0.2287 id=shopee-return-process#8 doc_id=shopee-return-process
+     Hàng lỗi, không hoạt động  -  -  ✔  ✔  ✔  -    Khác với mô tả  ✔  -  ✔  ✔  ✔  ✔    Hàng giả, nhái  -  -  ✔  ✔  ✔  -    Hàng đã qua sử dụng  -  -  ✔  ✔  ✔  -    Hàng nguyên vẹn nhưn
+  3. score=0.2027 id=shopee-return-conditions#1 doc_id=shopee-return-conditions
+     Shopee hiện chưa hỗ trợ yêu cầu đổi hàng. Nếu hàng nhận được có vấn đề (khác với mô tả, hư hỏng,...), bạn có thể từ chối nhận hàng khi đồng kiểm (đối với đơn hàng được Đồng kiểm), 
+  scoring: gold_doc=shopee-return-restrictions gold_rank=None marker_found=False naive=0/2 honest=0/2
+  agent.answer(top_k=3) (top-3 co filter, demo_llm khong phai LLM that):
+     [DEMO LLM - khong phai cau tra loi that] Answer the question using only the context below. Cite the bracketed source number(s), e.g. [1], for every claim in your answer, so the answer can be traced back to the exact chunk and source it came from. If the context does not contain the answer, say plainly that it is not available in the provided sources — do not invent or assume information that isn't there.  Context: [1] (source: shopee-ret...
+
+Q5: Nếu không đồng ý với quyết định hoàn tiền, thời hạn phản hồi của người bán là bao lâu?
+filter={'audience': 'seller'}
+  1. score=0.0616 id=shopee-return-policy-seller#6 doc_id=shopee-return-policy-seller
+     Chính sách được đăng ngày 04/03/2026 và có hiệu lực từ ngày 11/03/2026.
+  2. score=0.0171 id=shopee-return-policy-seller#0 doc_id=shopee-return-policy-seller
+     # Quyền và trách nhiệm của người bán khi trả hàng  ## Thời hạn phản hồi của người bán  Khi nhận yêu cầu trả hàng hoặc hoàn tiền từ Người Mua, Shopee sẽ xem xét, quyết định và thông
+  3. score=-0.0043 id=shopee-return-policy-seller#2 doc_id=shopee-return-policy-seller
+     ## Chi phí vận chuyển hoàn trả người bán phải chịu  Người Bán chịu chi phí vận chuyển chiều hoàn trả đối với:  - Yêu cầu trả hàng hoặc hoàn tiền được Shopee chấp thuận mà nguyên nh
+  scoring: gold_doc=shopee-return-policy-seller gold_rank=1 marker_found=False naive=2/2 honest=0/2
+  agent.answer(top_k=3) (top-3 co filter, demo_llm khong phai LLM that):
+     [DEMO LLM - khong phai cau tra loi that] Answer the question using only the context below. Cite the bracketed source number(s), e.g. [1], for every claim in your answer, so the answer can be traced back to the exact chunk and source it came from. If the context does not contain the answer, say plainly that it is not available in the provided sources — do not invent or assume information that isn't there.  Context: [1] (source: shopee-ret...
+
+=== Tong ket cham diem ===
+naive_total (chi kiem doc_id o top-3)  = 5/10
+honest_total (kiem marker co trong context) = 0/10
+chenh lech = 5 diem -> naive thoi phong ket qua so voi honest

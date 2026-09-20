@@ -8,6 +8,9 @@ __pycache__/
 .env
 .env.local
 
+# Local benchmark embedding cache (bench.py) — vector data, not source
+.bench_embedding_cache_*.json
+
 # OS
 .DS_Store
 
